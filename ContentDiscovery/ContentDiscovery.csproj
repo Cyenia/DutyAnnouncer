@@ -8,6 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <OutputPath>$(AppData)\XIVLauncher\devPlugins\ContentDiscovery\</OutputPath>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
   
   <ItemGroup>
