@@ -1,4 +1,4 @@
 # DutyAnnouncer
 
 DutyAnnouncer is a XIVLauncher/Dalamud plugin.\
-DutyAnnouncer sends a message to the chat when a content is entered, with the name of the content
+DutyAnnouncer announces the name of the duty roulette and sends a message to the chat like the dalamud function duty pop.
