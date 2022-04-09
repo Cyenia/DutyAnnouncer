@@ -7,7 +7,7 @@ using Dalamud.Game.ClientState;
 namespace DutyAnnouncer;
 public class Plugin : IDalamudPlugin
 {
-    public string Name => "Name the Content";
+    public string Name => "Duty Announcer";
 
     private readonly Discovery _discovery;
 
