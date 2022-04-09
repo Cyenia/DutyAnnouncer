@@ -5,7 +5,7 @@ using Dalamud.Logging;
 using Lumina.Excel;
 using Lumina.Excel.GeneratedSheets;
 
-namespace ContentDiscovery;
+namespace DutyAnnouncer;
 public sealed class Discovery
 {
     private readonly ClientState _clientState;

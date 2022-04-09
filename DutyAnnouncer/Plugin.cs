@@ -4,7 +4,7 @@ using Dalamud.Plugin;
 using Dalamud.Data;
 using Dalamud.Game.ClientState;
 
-namespace ContentDiscovery;
+namespace DutyAnnouncer;
 public class Plugin : IDalamudPlugin
 {
     public string Name => "Name the Content";

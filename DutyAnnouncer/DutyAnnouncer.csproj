@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <AssemblyName>ContentDiscovery</AssemblyName>
+    <AssemblyName>DutyAnnouncer</AssemblyName>
     <TargetFramework>net5.0-windows</TargetFramework>
     <PlatformTarget>x64</PlatformTarget>
     <Platforms>x64;AnyCPU</Platforms>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <OutputPath>$(AppData)\XIVLauncher\devPlugins\ContentDiscovery\</OutputPath>
+    <OutputPath>$(AppData)\XIVLauncher\devPlugins\DutyAnnouncer\</OutputPath>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
   
@@ -26,9 +26,9 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-
+  
   <ItemGroup>
-    <None Include="ContentDiscovery.json">
+    <None Include="DutyAnnouncer.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
