@@ -7,8 +7,15 @@
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <OutputPath>$(AppData)\XIVLauncher\devPlugins\DutyAnnouncer\</OutputPath>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <OutputPath>$(AppData)\XIVLauncher\devPlugins\DutyAnnouncer\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   
   <ItemGroup>
