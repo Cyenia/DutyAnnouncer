@@ -2,10 +2,11 @@
   "Author": "xPumaa",
   "Name": "Duty Announcer",
   "InternalName": "DutyAnnouncer",
-  "AssemblyVersion": "1.0.1.0",
+  "AssemblyVersion": "1.0.1.1",
   "Description": "Announces the name of the loading duty roulette",
   "ApplicableVersion": "any",
   "RepoUrl": "https://github.com/xPumaa/DutyAnnouncer",
-  "DalamudApiLevel": 5,
-  "LoadPriority": 0
+  "DalamudApiLevel": 6,
+  "LoadPriority": 0,
+  "Changelog": "Updated to Dalamud API6"
 }
