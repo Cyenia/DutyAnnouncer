@@ -33,21 +33,10 @@ public sealed class Discovery
 
     private void OnTerritoryChanged(object? sender, ushort e)
     {
-        if(_contentFinderConditionsSheet != null)
+        var content = _contentFinderConditionsSheet?.FirstOrDefault(t => t.TerritoryType.Row == _clientState.TerritoryType);
+        if (content != null && _dutyRoulette)
         {
-            var content = _contentFinderConditionsSheet.FirstOrDefault(t => t.TerritoryType.Row == _clientState.TerritoryType);
-            if (content != null && dutyRoulette)
-            {
-                _chatGui.Print($"Entering: {content.Name}");
-            }
-            else
-            {
-                PluginLog.Information($"Content is null {_clientState.TerritoryType}");
-            }
-        }
-        else
-        {
-            PluginLog.Warning("Sheet is null");
+            _chatGui.Print($"Entering: {content.Name}");
         }
     }
 
