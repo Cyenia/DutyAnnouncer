@@ -1,19 +1,20 @@
-﻿using Dalamud.Data;
+﻿using System.Linq;
+using Dalamud.Data;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.Gui;
-using Dalamud.Logging;
 using Lumina.Excel;
 using Lumina.Excel.GeneratedSheets;
 
 namespace DutyAnnouncer;
+
 public sealed class Discovery
 {
     private readonly ClientState _clientState;
     private readonly DataManager _dataManager;
     private readonly ChatGui _chatGui;
-    private ExcelSheet<ContentFinderCondition>? _contentFinderConditionsSheet;
+    private ExcelSheet<ContentFinderCondition> _contentFinderConditionsSheet;
 
-    private bool dutyRoulette = false;
+    private bool _dutyRoulette;
 
     public Discovery(ClientState client, DataManager data, ChatGui chat)
     {
@@ -24,14 +25,14 @@ public sealed class Discovery
         Initialize();
     }
 
-    public void Initialize()
+    private void Initialize()
     {
         _clientState.CfPop += CfPop;
         _clientState.TerritoryChanged += OnTerritoryChanged;
         _contentFinderConditionsSheet = _dataManager.GameData.GetExcelSheet<ContentFinderCondition>();
     }
 
-    private void OnTerritoryChanged(object? sender, ushort e)
+    private void OnTerritoryChanged(object sender, ushort e)
     {
         var content = _contentFinderConditionsSheet?.FirstOrDefault(t => t.TerritoryType.Row == _clientState.TerritoryType);
         if (content != null && _dutyRoulette)
@@ -40,16 +41,14 @@ public sealed class Discovery
         }
     }
 
-    private void CfPop(object? sender, ContentFinderCondition e)
+    private void CfPop(object sender, ContentFinderCondition e)
     {
-        dutyRoulette = false;
+        _dutyRoulette = false;
+
+        if (_contentFinderConditionsSheet == null) return;
+        var content = _contentFinderConditionsSheet.FirstOrDefault(t => t.TerritoryType.Row == e.TerritoryType.Row);
     
-        if (_contentFinderConditionsSheet != null)
-        {
-            var content = _contentFinderConditionsSheet.FirstOrDefault(t => t.TerritoryType.Row == e.TerritoryType.Row);
-    
-            dutyRoulette = content != null && String.IsNullOrEmpty(content.Name);
-        }
+        _dutyRoulette = content != null && string.IsNullOrEmpty(content.Name);
     }
 
     public void Dispose()

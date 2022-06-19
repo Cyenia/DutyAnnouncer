@@ -1,11 +1,13 @@
-﻿using Dalamud.Game.Gui;
+﻿using System;
+using Dalamud.Game.Gui;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Data;
 using Dalamud.Game.ClientState;
 
 namespace DutyAnnouncer;
-public class Plugin : IDalamudPlugin
+
+internal class Plugin : IDalamudPlugin
 {
     public string Name => "Duty Announcer";
 
@@ -23,5 +25,6 @@ public class Plugin : IDalamudPlugin
     public void Dispose()
     {
         _discovery.Dispose();
+        GC.SuppressFinalize(this);
     }
 }
