@@ -5,7 +5,5 @@
   "Punchline": "A Duty roulette announcer",
   "InternalName": "DutyAnnouncer",
   "RepoUrl": "https://github.com/xPumaa/DutyAnnouncer",
-  "ApplicableVersion": "any",
-  "DalamudApiLevel": 6,
-  "Changelog": "Removed unnecessary logging"
+  "Changelog": "API 7"
 }

@@ -16,11 +16,11 @@ public sealed class Discovery
 
     private bool _dutyRoulette;
 
-    public Discovery(ClientState client, DataManager data, ChatGui chat)
+    public Discovery(ClientState clientState, DataManager dataManager, ChatGui chatGui)
     {
-        _clientState = client;
-        _dataManager = data;
-        _chatGui = chat;
+        _clientState = clientState;
+        _dataManager = dataManager;
+        _chatGui = chatGui;
 
         Initialize();
     }

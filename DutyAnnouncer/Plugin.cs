@@ -13,13 +13,10 @@ internal class Plugin : IDalamudPlugin
 
     private readonly Discovery _discovery;
 
-    public Plugin(
-        [RequiredVersion("1.0")] ClientState client,
-        [RequiredVersion("1.0")] DataManager data,
-        [RequiredVersion("1.0")] ChatGui chat
+    public Plugin(ClientState clientState, DataManager dataManager, ChatGui chatGui
     )
     {
-        _discovery = new Discovery(client, data, chat);
+        _discovery = new Discovery(clientState, dataManager, chatGui);
     }
 
     public void Dispose()
