@@ -1,6 +1,5 @@
 # DutyAnnouncer
-MacroChaining is a FFXIV Dalamud plugin.\
-DutyAnnouncer announces the name of the duty roulette and sends a message to the chat like the dalamud function duty pop.
+DutyAnnouncer is a FFXIV Dalamud plugin that announces the name of the duty roulette and sends a message to the chat like the dalamud function duty pop.
 
 ## Installation
 ```
