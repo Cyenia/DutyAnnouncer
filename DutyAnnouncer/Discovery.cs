@@ -1,7 +1,5 @@
 ﻿using System.Linq;
-using Dalamud.Data;
-using Dalamud.Game.ClientState;
-using Dalamud.Game.Gui;
+using Dalamud.Plugin.Services;
 using Lumina.Excel;
 using Lumina.Excel.GeneratedSheets;
 
@@ -9,14 +7,14 @@ namespace DutyAnnouncer;
 
 public sealed class Discovery
 {
-    private readonly ClientState _clientState;
-    private readonly DataManager _dataManager;
-    private readonly ChatGui _chatGui;
+    private readonly IClientState _clientState;
+    private readonly IDataManager _dataManager;
+    private readonly IChatGui _chatGui;
     private ExcelSheet<ContentFinderCondition> _contentFinderConditionsSheet;
 
     private bool _dutyRoulette;
 
-    public Discovery(ClientState clientState, DataManager dataManager, ChatGui chatGui)
+    public Discovery(IClientState clientState, IDataManager dataManager, IChatGui chatGui)
     {
         _clientState = clientState;
         _dataManager = dataManager;
@@ -32,7 +30,7 @@ public sealed class Discovery
         _contentFinderConditionsSheet = _dataManager.GameData.GetExcelSheet<ContentFinderCondition>();
     }
 
-    private void OnTerritoryChanged(object sender, ushort e)
+    private void OnTerritoryChanged(ushort e)
     {
         var content = _contentFinderConditionsSheet?.FirstOrDefault(t => t.TerritoryType.Row == _clientState.TerritoryType);
         if (content != null && _dutyRoulette)
@@ -41,7 +39,7 @@ public sealed class Discovery
         }
     }
 
-    private void CfPop(object sender, ContentFinderCondition e)
+    private void CfPop(ContentFinderCondition e)
     {
         _dutyRoulette = false;
 

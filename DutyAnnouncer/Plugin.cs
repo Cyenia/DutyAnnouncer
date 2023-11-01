@@ -1,19 +1,14 @@
 ﻿using System;
-using Dalamud.Game.Gui;
-using Dalamud.IoC;
 using Dalamud.Plugin;
-using Dalamud.Data;
-using Dalamud.Game.ClientState;
+using Dalamud.Plugin.Services;
 
 namespace DutyAnnouncer;
 
 internal class Plugin : IDalamudPlugin
 {
-    public string Name => "Duty Announcer";
-
     private readonly Discovery _discovery;
 
-    public Plugin(ClientState clientState, DataManager dataManager, ChatGui chatGui
+    public Plugin(IClientState clientState, IDataManager dataManager, IChatGui chatGui
     )
     {
         _discovery = new Discovery(clientState, dataManager, chatGui);
