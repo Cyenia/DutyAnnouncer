@@ -1,9 +1,9 @@
 {
-  "Author": "xPumaa",
+  "Author": "Cyenia",
   "Name": "Duty Announcer",
   "Description": "Announces the name of the loading duty roulette",
   "Punchline": "A Duty roulette announcer",
   "InternalName": "DutyAnnouncer",
-  "RepoUrl": "https://github.com/xPumaa/DutyAnnouncer",
+  "RepoUrl": "https://github.com/Cyeniia/DutyAnnouncer",
   "Changelog": "API 9"
 }
