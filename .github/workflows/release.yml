@@ -64,7 +64,6 @@ jobs:
             "new-files='false'" >> $env:GITHUB_OUTPUT
           
             if($repo_json[0].AssemblyVersion -ne $build_json[0].AssemblyVersion) {
-              echo "lol was mache ich hier"
               copy plugin/${{env.PROJECT_NAME}}/bin/Release/${{env.PROJECT_NAME}}/* plugin-repo/plugins/${{env.PROJECT_NAME}}
               "new-files='true'" >> $env:GITHUB_OUTPUT
             }
