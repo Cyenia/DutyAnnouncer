@@ -4,15 +4,9 @@ using Dalamud.Plugin.Services;
 
 namespace DutyAnnouncer;
 
-internal class Plugin : IDalamudPlugin
+internal class Plugin(IClientState clientState, IDataManager dataManager, IChatGui chatGui) : IDalamudPlugin
 {
-    private readonly Discovery _discovery;
-
-    public Plugin(IClientState clientState, IDataManager dataManager, IChatGui chatGui
-    )
-    {
-        _discovery = new Discovery(clientState, dataManager, chatGui);
-    }
+    private readonly Discovery _discovery = new(clientState, dataManager, chatGui);
 
     public void Dispose()
     {
