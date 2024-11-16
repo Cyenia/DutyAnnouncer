@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Dalamud.Plugin.Services;
 using Lumina.Excel;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel.Sheets;
 
 namespace DutyAnnouncer;
 
@@ -10,7 +10,7 @@ public sealed class Discovery
     private readonly IClientState _clientState;
     private readonly IDataManager _dataManager;
     private readonly IChatGui _chatGui;
-    private ExcelSheet<ContentFinderCondition> _contentFinderConditionsSheet;
+    private ExcelSheet<ContentFinderCondition>? _contentFinderConditionsSheet;
 
     private bool _dutyRoulette;
 
@@ -32,10 +32,10 @@ public sealed class Discovery
 
     private void OnTerritoryChanged(ushort e)
     {
-        var content = _contentFinderConditionsSheet?.FirstOrDefault(t => t.TerritoryType.Row == _clientState.TerritoryType);
+        var content = _contentFinderConditionsSheet?.FirstOrDefault(t => t.TerritoryType.RowId == _clientState.TerritoryType);
         if (content != null && _dutyRoulette)
         {
-            _chatGui.Print($"Entering: {content.Name}");
+            _chatGui.Print($"Entering: {content.Value.Name}");
         }
     }
 
@@ -44,9 +44,9 @@ public sealed class Discovery
         _dutyRoulette = false;
 
         if (_contentFinderConditionsSheet == null) return;
-        var content = _contentFinderConditionsSheet.FirstOrDefault(t => t.TerritoryType.Row == e.TerritoryType.Row);
+        var content = _contentFinderConditionsSheet.FirstOrDefault(t => t.TerritoryType.RowId == e.TerritoryType.RowId);
     
-        _dutyRoulette = content != null && string.IsNullOrEmpty(content.Name);
+        _dutyRoulette = string.IsNullOrEmpty(content.Name.ToString());
     }
 
     public void Dispose()

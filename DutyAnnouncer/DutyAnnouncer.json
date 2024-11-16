@@ -4,6 +4,6 @@
   "Description": "Announces the name of the loading duty roulette",
   "Punchline": "A Duty roulette announcer",
   "InternalName": "DutyAnnouncer",
-  "RepoUrl": "https://github.com/Cyeniia/DutyAnnouncer",
-  "Changelog": ".net 10 Update"
+  "RepoUrl": "https://github.com/Cyenia/DutyAnnouncer",
+  "Changelog": "api11 update"
 }
