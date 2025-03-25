@@ -4,7 +4,7 @@ on:
   push
 
 env:
-  PLUGIN_REPO: Cyeniia/DalamudPlugins
+  PLUGIN_REPO: Cyenia/DalamudPlugins
   PROJECT_NAME: DutyAnnouncer
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.x.x'
+          dotnet-version: '9.x.x'
 
       - name: Restore dependencies
         working-directory: plugin/
