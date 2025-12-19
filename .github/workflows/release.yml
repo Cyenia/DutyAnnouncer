@@ -33,9 +33,9 @@ jobs:
           persist-credentials: true
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: '9.x.x'
+          dotnet-version: '10.x.x'
 
       - name: Restore dependencies
         working-directory: plugin/
