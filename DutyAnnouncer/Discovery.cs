@@ -30,7 +30,7 @@ public sealed class Discovery
         _contentFinderConditionsSheet = _dataManager.GameData.GetExcelSheet<ContentFinderCondition>();
     }
 
-    private void OnTerritoryChanged(ushort e)
+    private void OnTerritoryChanged(uint e)
     {
         var content = _contentFinderConditionsSheet?.FirstOrDefault(t => t.TerritoryType.RowId == _clientState.TerritoryType);
         if (content != null && _dutyRoulette)
